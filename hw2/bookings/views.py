@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Movie 
+from .models import Movie, Seat, Booking 
 
 # Base View
 def BaseViewSet(request):
