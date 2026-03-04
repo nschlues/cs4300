@@ -29,6 +29,7 @@ ALLOWED_HOSTS = [
     'app-nschluescontainer-21.devedu.io', 
     'localhost', 
     '127.0.0.1',
+    '*',
 ]
 
 
@@ -103,6 +104,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# User handling
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 
 # Internationalization

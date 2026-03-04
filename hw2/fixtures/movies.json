@@ -1,0 +1,72 @@
+[
+{
+  "model": "bookings.movie",
+  "pk": 1,
+  "fields": {
+    "title": "The Shawshank Redemption",
+    "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+    "release_date": "1994-09-23",
+    "duration": 142
+  }
+},
+{
+  "model": "bookings.movie",
+  "pk": 2,
+  "fields": {
+    "title": "The Dark Knight",
+    "description": "Batman faces the Joker, a criminal mastermind who plunges Gotham into chaos.",
+    "release_date": "2008-07-18",
+    "duration": 152
+  }
+},
+{
+  "model": "bookings.movie",
+  "pk": 3,
+  "fields": {
+    "title": "Inception",
+    "description": "A skilled thief leads a team into dreams to plant an idea into a target's subconscious.",
+    "release_date": "2010-07-16",
+    "duration": 148
+  }
+},
+{
+  "model": "bookings.movie",
+  "pk": 4,
+  "fields": {
+    "title": "Interstellar",
+    "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    "release_date": "2014-11-07",
+    "duration": 169
+  }
+},
+{
+  "model": "bookings.movie",
+  "pk": 5,
+  "fields": {
+    "title": "Parasite",
+    "description": "A poor family schemes to become employed by a wealthy household.",
+    "release_date": "2019-05-30",
+    "duration": 132
+  }
+},
+{
+  "model": "bookings.movie",
+  "pk": 6,
+  "fields": {
+    "title": "Gladiator",
+    "description": "A former Roman general seeks revenge against a corrupt emperor.",
+    "release_date": "2000-05-05",
+    "duration": 155
+  }
+},
+{
+  "model": "bookings.movie",
+  "pk": 7,
+  "fields": {
+    "title": "The Matrix",
+    "description": "A computer hacker learns about the true nature of reality.",
+    "release_date": "1999-03-31",
+    "duration": 136
+  }
+}
+]

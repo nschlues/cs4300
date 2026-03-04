@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 
 # Movie Model
@@ -16,6 +17,7 @@ class Movie(models.Model):
 class Seat(models.Model):
     seat_number = models.CharField(max_length=10)
     is_booked = models.BooleanField(default=False)
+    user_booked = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.seat_number
