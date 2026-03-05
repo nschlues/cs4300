@@ -3,35 +3,55 @@
   "model": "bookings.movie",
   "pk": 1,
   "fields": {
-    "title": "The Shawshank Redemption",
-    "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-    "release_date": "1994-09-23",
-    "duration": 142
+    "title": "The Lego Movie",
+    "description": "An ordinary LEGO minifigure is mistakenly thought to be the extraordinary MasterBuilder who can save the world.",
+    "release_date": "2014-02-07",
+    "duration": 100
   }
 },
 {
   "model": "bookings.movie",
   "pk": 2,
   "fields": {
-    "title": "The Dark Knight",
-    "description": "Batman faces the Joker, a criminal mastermind who plunges Gotham into chaos.",
-    "release_date": "2008-07-18",
-    "duration": 152
+    "title": "The Princess Bride",
+    "description": "A bedridden boy's grandfather reads him a story about a farmboy-turned-pirate who encounters numerous obstacles trying to reunite with his true love.",
+    "release_date": "1987-09-25",
+    "duration": 98
   }
 },
 {
   "model": "bookings.movie",
   "pk": 3,
   "fields": {
+    "title": "Willow",
+    "description": "A reluctant farmer is chosen to undertake a perilous journey to protect a special baby from an evil queen.",
+    "release_date": "1988-05-20",
+    "duration": 126
+  }
+},
+{
+  "model": "bookings.movie",
+  "pk": 4,
+  "fields": {
     "title": "Inception",
-    "description": "A skilled thief leads a team into dreams to plant an idea into a target's subconscious.",
+    "description": "A thief who steals corporate secrets through dream-sharing technology is given the inverse task of planting an idea into a target's mind.",
     "release_date": "2010-07-16",
     "duration": 148
   }
 },
 {
   "model": "bookings.movie",
-  "pk": 4,
+  "pk": 5,
+  "fields": {
+    "title": "The Matrix",
+    "description": "A computer hacker learns the true nature of reality and his role in the war against its controllers.",
+    "release_date": "1999-03-31",
+    "duration": 136
+  }
+},
+{
+  "model": "bookings.movie",
+  "pk": 6,
   "fields": {
     "title": "Interstellar",
     "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
@@ -41,32 +61,42 @@
 },
 {
   "model": "bookings.movie",
-  "pk": 5,
+  "pk": 7,
+  "fields": {
+    "title": "The Grand Budapest Hotel",
+    "description": "A writer encounters the owner of an aging European hotel between the wars and learns of his early years serving as a lobby boy.",
+    "release_date": "2014-03-28",
+    "duration": 99
+  }
+},
+{
+  "model": "bookings.movie",
+  "pk": 8,
   "fields": {
     "title": "Parasite",
-    "description": "A poor family schemes to become employed by a wealthy household.",
-    "release_date": "2019-05-30",
+    "description": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+    "release_date": "2019-10-11",
     "duration": 132
   }
 },
 {
   "model": "bookings.movie",
-  "pk": 6,
+  "pk": 9,
   "fields": {
-    "title": "Gladiator",
-    "description": "A former Roman general seeks revenge against a corrupt emperor.",
-    "release_date": "2000-05-05",
-    "duration": 155
+    "title": "Everything Everywhere All at Once",
+    "description": "A middle-aged Chinese immigrant is swept up in an insane adventure where she alone can save existence by exploring other universes.",
+    "release_date": "2022-03-25",
+    "duration": 139
   }
 },
 {
   "model": "bookings.movie",
-  "pk": 7,
+  "pk": 10,
   "fields": {
-    "title": "The Matrix",
-    "description": "A computer hacker learns about the true nature of reality.",
-    "release_date": "1999-03-31",
-    "duration": 136
+    "title": "The Shawshank Redemption",
+    "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+    "release_date": "1994-09-23",
+    "duration": 142
   }
 }
 ]

@@ -1,1 +1,1352 @@
 [
+{
+  "model": "bookings.seat",
+  "pk": 1,
+  "fields": {
+    "movie": 1,
+    "seat_number": "A1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 2,
+  "fields": {
+    "movie": 1,
+    "seat_number": "A2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 3,
+  "fields": {
+    "movie": 1,
+    "seat_number": "A3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 4,
+  "fields": {
+    "movie": 1,
+    "seat_number": "A4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 5,
+  "fields": {
+    "movie": 1,
+    "seat_number": "A5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 6,
+  "fields": {
+    "movie": 1,
+    "seat_number": "B1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 7,
+  "fields": {
+    "movie": 1,
+    "seat_number": "B2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 8,
+  "fields": {
+    "movie": 1,
+    "seat_number": "B3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 9,
+  "fields": {
+    "movie": 1,
+    "seat_number": "B4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 10,
+  "fields": {
+    "movie": 1,
+    "seat_number": "B5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 11,
+  "fields": {
+    "movie": 1,
+    "seat_number": "C1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 12,
+  "fields": {
+    "movie": 1,
+    "seat_number": "C2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 13,
+  "fields": {
+    "movie": 1,
+    "seat_number": "C3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 14,
+  "fields": {
+    "movie": 1,
+    "seat_number": "C4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 15,
+  "fields": {
+    "movie": 1,
+    "seat_number": "C5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 16,
+  "fields": {
+    "movie": 2,
+    "seat_number": "A1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 17,
+  "fields": {
+    "movie": 2,
+    "seat_number": "A2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 18,
+  "fields": {
+    "movie": 2,
+    "seat_number": "A3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 19,
+  "fields": {
+    "movie": 2,
+    "seat_number": "A4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 20,
+  "fields": {
+    "movie": 2,
+    "seat_number": "A5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 21,
+  "fields": {
+    "movie": 2,
+    "seat_number": "B1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 22,
+  "fields": {
+    "movie": 2,
+    "seat_number": "B2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 23,
+  "fields": {
+    "movie": 2,
+    "seat_number": "B3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 24,
+  "fields": {
+    "movie": 2,
+    "seat_number": "B4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 25,
+  "fields": {
+    "movie": 2,
+    "seat_number": "B5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 26,
+  "fields": {
+    "movie": 2,
+    "seat_number": "C1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 27,
+  "fields": {
+    "movie": 2,
+    "seat_number": "C2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 28,
+  "fields": {
+    "movie": 2,
+    "seat_number": "C3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 29,
+  "fields": {
+    "movie": 2,
+    "seat_number": "C4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 30,
+  "fields": {
+    "movie": 2,
+    "seat_number": "C5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 31,
+  "fields": {
+    "movie": 3,
+    "seat_number": "A1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 32,
+  "fields": {
+    "movie": 3,
+    "seat_number": "A2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 33,
+  "fields": {
+    "movie": 3,
+    "seat_number": "A3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 34,
+  "fields": {
+    "movie": 3,
+    "seat_number": "A4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 35,
+  "fields": {
+    "movie": 3,
+    "seat_number": "A5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 36,
+  "fields": {
+    "movie": 3,
+    "seat_number": "B1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 37,
+  "fields": {
+    "movie": 3,
+    "seat_number": "B2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 38,
+  "fields": {
+    "movie": 3,
+    "seat_number": "B3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 39,
+  "fields": {
+    "movie": 3,
+    "seat_number": "B4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 40,
+  "fields": {
+    "movie": 3,
+    "seat_number": "B5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 41,
+  "fields": {
+    "movie": 3,
+    "seat_number": "C1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 42,
+  "fields": {
+    "movie": 3,
+    "seat_number": "C2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 43,
+  "fields": {
+    "movie": 3,
+    "seat_number": "C3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 44,
+  "fields": {
+    "movie": 3,
+    "seat_number": "C4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 45,
+  "fields": {
+    "movie": 3,
+    "seat_number": "C5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 46,
+  "fields": {
+    "movie": 4,
+    "seat_number": "A1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 47,
+  "fields": {
+    "movie": 4,
+    "seat_number": "A2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 48,
+  "fields": {
+    "movie": 4,
+    "seat_number": "A3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 49,
+  "fields": {
+    "movie": 4,
+    "seat_number": "A4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 50,
+  "fields": {
+    "movie": 4,
+    "seat_number": "A5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 51,
+  "fields": {
+    "movie": 4,
+    "seat_number": "B1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 52,
+  "fields": {
+    "movie": 4,
+    "seat_number": "B2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 53,
+  "fields": {
+    "movie": 4,
+    "seat_number": "B3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 54,
+  "fields": {
+    "movie": 4,
+    "seat_number": "B4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 55,
+  "fields": {
+    "movie": 4,
+    "seat_number": "B5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 56,
+  "fields": {
+    "movie": 4,
+    "seat_number": "C1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 57,
+  "fields": {
+    "movie": 4,
+    "seat_number": "C2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 58,
+  "fields": {
+    "movie": 4,
+    "seat_number": "C3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 59,
+  "fields": {
+    "movie": 4,
+    "seat_number": "C4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 60,
+  "fields": {
+    "movie": 4,
+    "seat_number": "C5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 61,
+  "fields": {
+    "movie": 5,
+    "seat_number": "A1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 62,
+  "fields": {
+    "movie": 5,
+    "seat_number": "A2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 63,
+  "fields": {
+    "movie": 5,
+    "seat_number": "A3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 64,
+  "fields": {
+    "movie": 5,
+    "seat_number": "A4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 65,
+  "fields": {
+    "movie": 5,
+    "seat_number": "A5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 66,
+  "fields": {
+    "movie": 5,
+    "seat_number": "B1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 67,
+  "fields": {
+    "movie": 5,
+    "seat_number": "B2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 68,
+  "fields": {
+    "movie": 5,
+    "seat_number": "B3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 69,
+  "fields": {
+    "movie": 5,
+    "seat_number": "B4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 70,
+  "fields": {
+    "movie": 5,
+    "seat_number": "B5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 71,
+  "fields": {
+    "movie": 5,
+    "seat_number": "C1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 72,
+  "fields": {
+    "movie": 5,
+    "seat_number": "C2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 73,
+  "fields": {
+    "movie": 5,
+    "seat_number": "C3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 74,
+  "fields": {
+    "movie": 5,
+    "seat_number": "C4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 75,
+  "fields": {
+    "movie": 5,
+    "seat_number": "C5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 76,
+  "fields": {
+    "movie": 6,
+    "seat_number": "A1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 77,
+  "fields": {
+    "movie": 6,
+    "seat_number": "A2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 78,
+  "fields": {
+    "movie": 6,
+    "seat_number": "A3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 79,
+  "fields": {
+    "movie": 6,
+    "seat_number": "A4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 80,
+  "fields": {
+    "movie": 6,
+    "seat_number": "A5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 81,
+  "fields": {
+    "movie": 6,
+    "seat_number": "B1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 82,
+  "fields": {
+    "movie": 6,
+    "seat_number": "B2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 83,
+  "fields": {
+    "movie": 6,
+    "seat_number": "B3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 84,
+  "fields": {
+    "movie": 6,
+    "seat_number": "B4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 85,
+  "fields": {
+    "movie": 6,
+    "seat_number": "B5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 86,
+  "fields": {
+    "movie": 6,
+    "seat_number": "C1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 87,
+  "fields": {
+    "movie": 6,
+    "seat_number": "C2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 88,
+  "fields": {
+    "movie": 6,
+    "seat_number": "C3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 89,
+  "fields": {
+    "movie": 6,
+    "seat_number": "C4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 90,
+  "fields": {
+    "movie": 6,
+    "seat_number": "C5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 91,
+  "fields": {
+    "movie": 7,
+    "seat_number": "A1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 92,
+  "fields": {
+    "movie": 7,
+    "seat_number": "A2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 93,
+  "fields": {
+    "movie": 7,
+    "seat_number": "A3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 94,
+  "fields": {
+    "movie": 7,
+    "seat_number": "A4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 95,
+  "fields": {
+    "movie": 7,
+    "seat_number": "A5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 96,
+  "fields": {
+    "movie": 7,
+    "seat_number": "B1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 97,
+  "fields": {
+    "movie": 7,
+    "seat_number": "B2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 98,
+  "fields": {
+    "movie": 7,
+    "seat_number": "B3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 99,
+  "fields": {
+    "movie": 7,
+    "seat_number": "B4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 100,
+  "fields": {
+    "movie": 7,
+    "seat_number": "B5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 101,
+  "fields": {
+    "movie": 7,
+    "seat_number": "C1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 102,
+  "fields": {
+    "movie": 7,
+    "seat_number": "C2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 103,
+  "fields": {
+    "movie": 7,
+    "seat_number": "C3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 104,
+  "fields": {
+    "movie": 7,
+    "seat_number": "C4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 105,
+  "fields": {
+    "movie": 7,
+    "seat_number": "C5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 106,
+  "fields": {
+    "movie": 8,
+    "seat_number": "A1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 107,
+  "fields": {
+    "movie": 8,
+    "seat_number": "A2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 108,
+  "fields": {
+    "movie": 8,
+    "seat_number": "A3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 109,
+  "fields": {
+    "movie": 8,
+    "seat_number": "A4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 110,
+  "fields": {
+    "movie": 8,
+    "seat_number": "A5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 111,
+  "fields": {
+    "movie": 8,
+    "seat_number": "B1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 112,
+  "fields": {
+    "movie": 8,
+    "seat_number": "B2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 113,
+  "fields": {
+    "movie": 8,
+    "seat_number": "B3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 114,
+  "fields": {
+    "movie": 8,
+    "seat_number": "B4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 115,
+  "fields": {
+    "movie": 8,
+    "seat_number": "B5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 116,
+  "fields": {
+    "movie": 8,
+    "seat_number": "C1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 117,
+  "fields": {
+    "movie": 8,
+    "seat_number": "C2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 118,
+  "fields": {
+    "movie": 8,
+    "seat_number": "C3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 119,
+  "fields": {
+    "movie": 8,
+    "seat_number": "C4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 120,
+  "fields": {
+    "movie": 8,
+    "seat_number": "C5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 121,
+  "fields": {
+    "movie": 9,
+    "seat_number": "A1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 122,
+  "fields": {
+    "movie": 9,
+    "seat_number": "A2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 123,
+  "fields": {
+    "movie": 9,
+    "seat_number": "A3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 124,
+  "fields": {
+    "movie": 9,
+    "seat_number": "A4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 125,
+  "fields": {
+    "movie": 9,
+    "seat_number": "A5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 126,
+  "fields": {
+    "movie": 9,
+    "seat_number": "B1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 127,
+  "fields": {
+    "movie": 9,
+    "seat_number": "B2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 128,
+  "fields": {
+    "movie": 9,
+    "seat_number": "B3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 129,
+  "fields": {
+    "movie": 9,
+    "seat_number": "B4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 130,
+  "fields": {
+    "movie": 9,
+    "seat_number": "B5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 131,
+  "fields": {
+    "movie": 9,
+    "seat_number": "C1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 132,
+  "fields": {
+    "movie": 9,
+    "seat_number": "C2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 133,
+  "fields": {
+    "movie": 9,
+    "seat_number": "C3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 134,
+  "fields": {
+    "movie": 9,
+    "seat_number": "C4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 135,
+  "fields": {
+    "movie": 9,
+    "seat_number": "C5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 136,
+  "fields": {
+    "movie": 10,
+    "seat_number": "A1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 137,
+  "fields": {
+    "movie": 10,
+    "seat_number": "A2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 138,
+  "fields": {
+    "movie": 10,
+    "seat_number": "A3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 139,
+  "fields": {
+    "movie": 10,
+    "seat_number": "A4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 140,
+  "fields": {
+    "movie": 10,
+    "seat_number": "A5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 141,
+  "fields": {
+    "movie": 10,
+    "seat_number": "B1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 142,
+  "fields": {
+    "movie": 10,
+    "seat_number": "B2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 143,
+  "fields": {
+    "movie": 10,
+    "seat_number": "B3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 144,
+  "fields": {
+    "movie": 10,
+    "seat_number": "B4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 145,
+  "fields": {
+    "movie": 10,
+    "seat_number": "B5",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 146,
+  "fields": {
+    "movie": 10,
+    "seat_number": "C1",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 147,
+  "fields": {
+    "movie": 10,
+    "seat_number": "C2",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 148,
+  "fields": {
+    "movie": 10,
+    "seat_number": "C3",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 149,
+  "fields": {
+    "movie": 10,
+    "seat_number": "C4",
+    "is_booked": false
+  }
+},
+{
+  "model": "bookings.seat",
+  "pk": 150,
+  "fields": {
+    "movie": 10,
+    "seat_number": "C5",
+    "is_booked": false
+  }
+}
+]
