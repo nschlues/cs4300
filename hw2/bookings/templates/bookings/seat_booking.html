@@ -1,9 +1,25 @@
-{% extends 'movie_list.html' %}
+{% extends 'bookings/movie_list.html' %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/seats.css' %}">
+{% endblock %}
 
 {% block title %}Book a Seat{% endblock %} 
 
 {% block content %}
 
+    <div class="screen"></div>
+    <ul class="seat-list">
+        {% for seat in seats %}
+            <li class="seat-card">
+                <h2>{{ seat.seat_number }}</h2>
+                {% if seat.is_booked %}
+                    <p class="status booked">Booked</p>
+                        {% else %}
+                    <p class="status open">Open</p>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <h1 class="title">Showing for {{ movie.title }}</h1>
 {% endblock %}

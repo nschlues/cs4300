@@ -1,0 +1,50 @@
+.screen {
+    width: 1000px;
+    height: 30px;
+    background: grey;
+    border-radius: 50% 50% 0 0 / 20px 20px 0 0;
+    margin: 0 auto 40px auto;
+}
+
+li {
+    list-style-type: none;
+}
+
+.seat-card {
+    border: 2px solid white;
+    border-radius: 4px;
+    padding:  1rem;
+    height: 100px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.seat-list {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(220px, 1fr));
+    gap: 2rem;
+    list-style: none;
+    max-width: 1200px;
+    width: 90%;
+    margin: 3rem auto;
+    padding: 0;
+}
+
+.status {
+    padding: 0.25rem 0.25rem;
+    border-radius: 4px;
+}
+
+.booked {background-color: red;}
+
+.open {background-color: green;}
+
+.title {
+    color: #e5173f;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.06em;
+    font-weight: 300;
+    font-size: 40px;
+    text-align: center;
+}

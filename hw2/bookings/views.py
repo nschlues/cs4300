@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Movie, Seat, Booking 
 
+def my_view(request):
+    return render(request, 'my_page.html')
+
 # Login View for user authentication
 def LoginViewSet(request):
     return render(request, 'bookings/login.html')
@@ -12,8 +15,8 @@ def RegisterViewSet(request):
 # Seat View for seat availability and booking
 def SeatViewSet(request, movie_id):
     movie = get_object_or_404(Movie, id=movie_id)
-    seats = Seat.objects.filter(movie=movie)
-    return render(request, 'bookings/seat_booking.html', {'seats': seats, 'movie': movie})
+    seats = movie.seats.all()
+    return render(request, 'bookings/seat_booking.html', {'movie': movie, 'seats': seats})
 
 # Booking View for user's to view their booking history
 def BookingViewSet(request):

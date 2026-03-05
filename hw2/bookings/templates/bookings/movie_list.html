@@ -5,6 +5,7 @@
     <title>{% block title %}Movies{% endblock %}</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
     <nav class="navbar">
@@ -33,7 +34,7 @@
             <ul class="movie-list">
                 {% for movie in movies %}
                     <li class="movie-card">
-                        <h2>{{ movie.title }}</h2>
+                        <h2><a href="{% url 'book_seat' movie.id %}">{{ movie.title }}</a></h2>
                         <p>{{ movie.description }}</p>
                         <p>{{ movie.release_date }}</p>
                         <p>{{ movie.duration }}</p>

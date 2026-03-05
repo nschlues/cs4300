@@ -63,10 +63,10 @@
   "model": "bookings.movie",
   "pk": 7,
   "fields": {
-    "title": "The Grand Budapest Hotel",
-    "description": "A writer encounters the owner of an aging European hotel between the wars and learns of his early years serving as a lobby boy.",
-    "release_date": "2014-03-28",
-    "duration": 99
+    "title": "A Hidden Life",
+    "description": "The Austrian Franz Jägerstätter, a conscientious objector, refuses to fight for the Nazis in World War II.",
+    "release_date": "2019-08-31",
+    "duration": 174
   }
 },
 {
