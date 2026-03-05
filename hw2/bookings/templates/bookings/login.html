@@ -1,14 +1,25 @@
-{% extends 'movie_list.html' %}
+{% extends 'bookings/movie_list.html' %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-
+{% block extra_css %}
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"> -->
+{% endblock %}
 {% block title %}Login{% endblock %} 
 
 {% block content %}
 <h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form }}
-  <button type="submit">Log In</button>
+<form method="post" action="{% url 'login' %}">
+  <!--{% csrf_token %}-->
+  {% if error %}
+    <p>{{ error }}</p>
+  {% endif %}
+  <label for="username">Username:</label><br>
+  <input type="text" id="username" name="username"><br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password"><br><br>
+  <input type="submit" value="Login">
 </form>
+
+<hr>
+
+<a href="{% url 'register' %}" class="nav-item">Register</a>
 {% endblock %}

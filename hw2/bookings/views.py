@@ -1,12 +1,47 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Movie, Seat, Booking 
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
 def my_view(request):
     return render(request, 'my_page.html')
 
 # Login View for user authentication
-def LoginViewSet(request):
-    return render(request, 'bookings/login.html')
+def LoginView(request):
+    # Check if user is trying to login
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        # If they authenticated correctly
+        if user is not None:
+            user.last_login = timezone.now()
+            user.save()
+            login(request,user)
+            return redirect('movies')
+        # Error if the authentication was incorrect
+        else:
+            return render(request, 'bookings/login.html', {'error': 'Invalid username or password'})
+    # User was directed to the page
+    else: return render(request, 'bookings/login.html')
+
+def SignUpView(request):
+    # If user was submitting a signup request
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        # Try to create a user
+        try:
+            user = User.objects.create_user(username=username, password=password)
+            user.save()
+            login(request, user)
+            return redirect('movies')
+        # If registration failed provide error message
+        except:
+            return render(request, 'bookings/register.html', {'error': 'An error occurred. Please try again'})
+    # Else render the page
+    else:
+        return render(request, 'bookings/register.html')
 
 # Signup View for new users
 def RegisterViewSet(request):
