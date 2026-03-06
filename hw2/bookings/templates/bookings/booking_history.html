@@ -5,5 +5,14 @@
 {% block title %}Booking History{% endblock %} 
 
 {% block content %}
-
+    <h1 class="title">Showings for {{ user.username }}</h1>
+    <ul class="seat-list">
+        {% for booking in bookings %}
+            <li class="booking-entry">
+                <h2>{{ booking.movie }}</h2>
+                <p>{{ booking.seat }}</p>
+                <p>{{ booking.booking_date }}</p>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

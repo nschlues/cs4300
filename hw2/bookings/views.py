@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Movie, Seat, Booking 
+from .forms import BookingForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -60,11 +61,23 @@ def SeatViewSet(request, movie_id):
     seats = movie.seats.all()
     return render(request, 'bookings/seat_booking.html', {'movie': movie, 'seats': seats})
 
-# Booking View for user's to view their booking history
+# Booking View for user's to view their booking history or to complete a booking
 def BookingViewSet(request):
-    # If user is creating a booking
-    if request.method == '':
-        
+    # If user is creating a booking check if valid and create booking
+    if request.method == 'POST':
+        booking = BookingForm(request.POST)
+        if booking.is_valid():
+            booking = form.save(commit=False)
+            booking.user = request.user
+            # Mark seat as booked
+            seat = booki.seat
+            seat.is_booked = True
+            seat.save()
+            booking.save()
+            return redirect('movies')
+        else:
+            booking = BookingForm()
+            return redirect('movies')
 
     # Else return a user's booking history
     else:

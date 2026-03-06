@@ -16,7 +16,12 @@
                 {% if seat.is_booked %}
                     <p class="status booked">Booked</p>
                         {% else %}
-                    <button class="status open">Open</button>
+                    <p class="status open">Open</p>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">Book</button>
+                    </form>
                 {% endif %}
             </li>
         {% endfor %}
