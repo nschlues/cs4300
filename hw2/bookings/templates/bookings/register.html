@@ -1,9 +1,25 @@
-{% extends 'movie_list.html' %}
+{% extends 'bookings/movie_list.html' %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-
-{% block title %}Sign up{% endblock %} 
+{% block extra_css %}
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"> -->
+{% endblock %}
+{% block title %}Login{% endblock %} 
 
 {% block content %}
+<h2>Create a new account</h2>
+<form method="post" action="{% url 'register' %}">
+  <!--{% csrf_token %}-->
+  {% if error %}
+    <p>{{ error }}</p>
+  {% endif %}
+  <label for="username">Username:</label><br>
+  <input type="text" id="username" name="username"><br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password"><br><br>
+  <input type="submit" value="Register">
+</form>
 
+<hr>
+
+<a href="{% url 'login' %}" class="nav-item">Log In</a>
 {% endblock %}
