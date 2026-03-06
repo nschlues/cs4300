@@ -50,10 +50,6 @@ def LogoutView(request):
         logout(request)
         return redirect('movies')
 
-# Signup View for new users
-def RegisterViewSet(request):
-    return render(request, 'bookings/register.html')
-
 # Seat View for seat availability and booking
 def SeatViewSet(request, movie_id):
     movie = get_object_or_404(Movie, id=movie_id)
