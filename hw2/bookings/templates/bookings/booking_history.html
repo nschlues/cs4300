@@ -1,18 +1,22 @@
 {% extends 'bookings/movie_list.html' %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/bookings.css' %}">
+{% endblock %}
 
 {% block title %}Booking History{% endblock %} 
 
 {% block content %}
     <h1 class="title">Showings for {{ user.username }}</h1>
-    <ul class="seat-list">
+    <ul class="bookings-list">
         {% for booking in bookings %}
-            <li class="booking-entry">
+            <li class="bookings-card">
                 <h2>{{ booking.movie }}</h2>
                 <p>{{ booking.seat }}</p>
                 <p>{{ booking.booking_date }}</p>
             </li>
+        {% empty %}
+            <p>No bookings yet.</p>
         {% endfor %}
     </ul>
 {% endblock %}

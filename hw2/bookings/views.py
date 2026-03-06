@@ -4,6 +4,7 @@ from .forms import BookingForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 
 def my_view(request):
     return render(request, 'my_page.html')
@@ -62,24 +63,29 @@ def SeatViewSet(request, movie_id):
     return render(request, 'bookings/seat_booking.html', {'movie': movie, 'seats': seats})
 
 # Booking View for user's to view their booking history or to complete a booking
+@login_required(login_url='login')
 def BookingViewSet(request):
-    # If user is creating a booking check if valid and create booking
     if request.method == 'POST':
-        booking = BookingForm(request.POST)
-        if booking.is_valid():
-            booking = form.save(commit=False)
-            booking.user = request.user
-            # Mark seat as booked
-            seat = booki.seat
-            seat.is_booked = True
-            seat.save()
-            booking.save()
-            return redirect('movies')
-        else:
-            booking = BookingForm()
-            return redirect('movies')
+        seat_id = request.POST.get('seat_id')
+        movie_id = request.POST.get('movie_id')
 
-    # Else return a user's booking history
+        seat = get_object_or_404(Seat, id=seat_id)
+        movie = get_object_or_404(Movie, id=movie_id)
+
+        # Prevent double-booking
+        if seat.is_booked:
+            return redirect('book_seat', movie_id=movie.id)
+
+        # Create the booking
+        Booking.objects.create(user=request.user, movie=movie, seat=seat)
+
+        # Mark the seat as booked
+        seat.is_booked = True
+        seat.save()
+
+        return redirect('bookings')
+
+    # GET: show booking history
     else:
         bookings = Booking.objects.filter(user=request.user)
         return render(request, 'bookings/booking_history.html', {'bookings': bookings})

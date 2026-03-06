@@ -15,13 +15,18 @@
                 <h2>{{ seat.seat_number }}</h2>
                 {% if seat.is_booked %}
                     <p class="status booked">Booked</p>
-                        {% else %}
+                {% else %}
                     <p class="status open">Open</p>
-                    <form method="POST">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit">Book</button>
-                    </form>
+                    {% if user.is_authenticated %}
+                        <form method="POST" action="{% url 'bookings' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="seat_id" value="{{ seat.id }}">
+                            <input type="hidden" name="movie_id" value="{{ movie.id }}">
+                            <button type="submit">Book</button>
+                        </form>
+                    {% else %}
+                        <a href="{% url 'login' %}">Login to book</a>
+                    {% endif %}
                 {% endif %}
             </li>
         {% endfor %}
