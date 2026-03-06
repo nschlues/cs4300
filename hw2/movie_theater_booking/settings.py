@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bookings',
     'rest_framework',
+    'django_behave',
 ]
 
 MIDDLEWARE = [

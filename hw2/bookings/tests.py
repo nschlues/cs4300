@@ -3,8 +3,11 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from .models import Movie, Seat, Booking
 from datetime import date
+from rest_framework.test import APIClient
+from rest_framework import status
 
-
+## Unit tests
+# Model tests
 class MovieModelTest(TestCase):
     def setUp(self):
         self.movie = Movie.objects.create(
@@ -82,7 +85,7 @@ class BookingModelTest(TestCase):
         self.assertIn("test", str(booking))
 
 
-
+# View Tests
 class LoginViewTest(TestCase):
     def setUp(self):
         self.client = Client()
@@ -272,3 +275,203 @@ class MovieViewSetTest(TestCase):
     def test_movie_list_accessible_without_login(self):
         response = self.client.get(reverse("movies"))
         self.assertEqual(response.status_code, 200)
+
+## Integration tests
+class MovieAPITest(TestCase):
+    def setUp(self):
+        self.client = APIClient()
+        self.movie = Movie.objects.create(
+            title="test movie",
+            description="desc",
+            release_date=date(1999, 3, 31),
+            duration=136,
+        )
+
+    def test_get_movies_returns_200(self):
+        response = self.client.get('/api/movies/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_get_movies_returns_list(self):
+        response = self.client.get('/api/movies/')
+        self.assertEqual(len(response.data), 1)
+
+    def test_movie_has_expected_fields(self):
+        response = self.client.get('/api/movies/')
+        movie = response.data[0]
+        self.assertIn('title', movie)
+        self.assertIn('description', movie)
+        self.assertIn('release_date', movie)
+        self.assertIn('duration', movie)
+
+    def test_movie_fields_have_correct_values(self):
+        response = self.client.get('/api/movies/')
+        movie = response.data[0]
+        self.assertEqual(movie['title'], 'test movie')
+        self.assertEqual(movie['duration'], 136)
+
+    def test_post_creates_movie(self):
+        data = {
+            'title': 'test movie 2',
+            'description': 'desc',
+            'release_date': '2010-07-16',
+            'duration': 148,
+        }
+        response = self.client.post('/api/movies/', data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(Movie.objects.count(), 2)
+
+    def test_post_returns_created_movie_data(self):
+        data = {
+            'title': 'test movie 2',
+            'description': 'desc',
+            'release_date': '2010-07-16',
+            'duration': 148,
+        }
+        response = self.client.post('/api/movies/', data, format='json')
+        self.assertEqual(response.data['title'], 'test movie 2')
+
+    def test_delete_movie_returns_204(self):
+        response = self.client.delete(f'/api/movies/{self.movie.id}/')
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+    def test_delete_movie_removes_from_db(self):
+        self.client.delete(f'/api/movies/{self.movie.id}/')
+        self.assertEqual(Movie.objects.count(), 0)
+
+
+class SeatAPITest(TestCase):
+    def setUp(self):
+        self.client = APIClient()
+        self.movie1 = Movie.objects.create(
+            title="test movie",
+            description="desc",
+            release_date=date(1999, 3, 31),
+            duration=136,
+        )
+        self.movie2 = Movie.objects.create(
+            title="test movie 2",
+            description="desc",
+            release_date=date(2010, 7, 16),
+            duration=148,
+        )
+
+    def test_get_all_seats_returns_200(self):
+        response = self.client.get('/api/seats/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_filter_seats_by_movie_returns_correct_count(self):
+        response = self.client.get(f'/api/seats/?movie={self.movie1.id}')
+        self.assertEqual(len(response.data), 15)
+
+    def test_filter_seats_by_movie_returns_only_that_movies_seats(self):
+        response = self.client.get(f'/api/seats/?movie={self.movie1.id}')
+        for seat in response.data:
+            self.assertEqual(seat['movie'], self.movie1.id)
+
+    def test_filter_seats_excludes_other_movies(self):
+        response = self.client.get(f'/api/seats/?movie={self.movie1.id}')
+        movie_ids = [seat['movie'] for seat in response.data]
+        self.assertNotIn(self.movie2.id, movie_ids)
+
+    def test_all_seats_start_unbooked(self):
+        response = self.client.get(f'/api/seats/?movie={self.movie1.id}')
+        for seat in response.data:
+            self.assertFalse(seat['is_booked'])
+
+    def test_all_seats_match_movie_count(self):
+        response = self.client.get('/api/seats/')
+        movie_count = Movie.objects.count()
+        expected_seats = movie_count * 15
+        self.assertEqual(len(response.data), expected_seats)
+
+
+class BookingAPITest(TestCase):
+    def setUp(self):
+        self.client = APIClient()
+        self.user = User.objects.create_user(username="test", password="test")
+        self.other_user = User.objects.create_user(username="otheruser", password="pass")
+        self.movie = Movie.objects.create(
+            title="test movie",
+            description="desc",
+            release_date=date(1999, 3, 31),
+            duration=136,
+        )
+        self.seat = self.movie.seats.first()
+
+    def test_get_bookings_without_login_returns_401_or_403(self):
+        response = self.client.get('/api/bookings/')
+        self.assertIn(response.status_code, [
+            status.HTTP_401_UNAUTHORIZED,
+            status.HTTP_403_FORBIDDEN
+        ])
+
+    def test_get_bookings_with_login_returns_200(self):
+        self.client.force_authenticate(user=self.user)
+        response = self.client.get('/api/bookings/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_get_bookings_only_returns_current_users_bookings(self):
+        # Create a booking for the current user
+        Booking.objects.create(user=self.user, movie=self.movie, seat=self.seat)
+        # Create a booking for another user
+        other_seat = self.movie.seats.last()
+        Booking.objects.create(user=self.other_user, movie=self.movie, seat=other_seat)
+
+        self.client.force_authenticate(user=self.user)
+        response = self.client.get('/api/bookings/')
+
+        self.assertEqual(len(response.data), 1)
+        self.assertEqual(response.data[0]['user'], self.user.id)
+
+    def test_post_booking_without_login_returns_401_or_403(self):
+        response = self.client.post(
+            '/api/bookings/',
+            {'movie': self.movie.id, 'seat': self.seat.id},
+            format='json'
+        )
+        self.assertIn(response.status_code, [
+            status.HTTP_401_UNAUTHORIZED,
+            status.HTTP_403_FORBIDDEN
+        ])
+
+    def test_post_booking_creates_booking(self):
+        self.client.force_authenticate(user=self.user)
+        response = self.client.post(
+            '/api/bookings/',
+            {'movie': self.movie.id, 'seat': self.seat.id},
+            format='json'
+        )
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(Booking.objects.count(), 1)
+
+    def test_post_booking_marks_seat_as_booked(self):
+        self.client.force_authenticate(user=self.user)
+        self.client.post(
+            '/api/bookings/',
+            {'movie': self.movie.id, 'seat': self.seat.id},
+            format='json'
+        )
+        self.seat.refresh_from_db()
+        self.assertTrue(self.seat.is_booked)
+
+    def test_post_booking_sets_user_automatically(self):
+        self.client.force_authenticate(user=self.user)
+        response = self.client.post(
+            '/api/bookings/',
+            {'movie': self.movie.id, 'seat': self.seat.id},
+            format='json'
+        )
+        self.assertEqual(response.data['user'], self.user.id)
+
+    def test_cannot_book_already_booked_seat(self):
+        self.seat.is_booked = True
+        self.seat.save()
+        self.client.force_authenticate(user=self.user)
+        response = self.client.post(
+            '/api/bookings/',
+            {'movie': self.movie.id, 'seat': self.seat.id},
+            format='json'
+        )
+        # Should not create a booking
+        self.assertEqual(Booking.objects.count(), 0)
+        self.assertNotEqual(response.status_code, status.HTTP_201_CREATED)

@@ -13,7 +13,8 @@ class SeatSerializer(serializers.ModelSerializer):
         
 # Do not include the user field for privacy. Just show all combined bookings
 class BookingSerializer(serializers.ModelSerializer):
-    class Meta: 
-        booking = Booking
-        fields = ['movie', 'seat', 'is_booked']
+    class Meta:
+        model = Booking
+        fields = ['id', 'movie', 'seat', 'user', 'booking_date']
+        read_only_fields = ['user', 'booking_date']  
 

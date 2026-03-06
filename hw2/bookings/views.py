@@ -54,14 +54,14 @@ def LogoutView(request):
         return redirect('movies')
 
 # Seat View for seat availability and booking
-def SeatViewSet(request, movie_id):
+def seat_booking_view(request, movie_id):
     movie = get_object_or_404(Movie, id=movie_id)
     seats = movie.seats.all()
     return render(request, 'bookings/seat_booking.html', {'movie': movie, 'seats': seats})
 
 # Booking View for user's to view their booking history or to complete a booking
 @login_required(login_url='login')
-def BookingViewSet(request):
+def booking_history_view(request):
     if request.method == 'POST':
         seat_id = request.POST.get('seat_id')
         movie_id = request.POST.get('movie_id')
@@ -88,7 +88,7 @@ def BookingViewSet(request):
         return render(request, 'bookings/booking_history.html', {'bookings': bookings})
 
 # Movie View for CRUD operations on movies
-def MovieViewSet(request):
+def movie_list_view(request):
     movies = Movie.objects.all()
     return render(request, 'bookings/movie_list.html', {"movies": movies})
 
@@ -98,7 +98,7 @@ class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
     # Make users have to authenticate
-    permission_classes = [IsAuthenticated]
+    #permission_classes = [IsAuthenticated]
 
 
 class SeatViewSet(viewsets.ModelViewSet):
@@ -108,23 +108,26 @@ class SeatViewSet(viewsets.ModelViewSet):
     # Only return seats for a specifif movie if provided
     def get_queryset(self):
         queryset = Seat.objects.all()
-        movie_id = self.request.query_params.get(movie_id)
+        movie_id = self.request.query_params.get(movie)
         if movie_id is not None:
             queryset = queryset.filter(movie_id)
         return queryset
 
 
 class BookingViewSet(viewsets.ModelViewSet):
-    serializer_class = MovieSerializer
-    # Make users have to authenticate
-    permission_classes = [IsAuthenticated]
+    serializer_class = BookingSerializer
 
     # Requires user to be logged in to create bookings through the API
     def perform_create(self, serializer):
+        seat = serializer.validated_data['seat']
+        seat.is_booked = True
+        seat.save()
         serializer.save(user=self.request.user)
 
     # Makes user get only their bookings through the API
     def get_queryset(self):
+        if not self.request.user.is_authenticated:
+            return Booking.objects.none()
         return Booking.objects.filter(user=self.request.user)
-    
+
     queryset = Booking.objects.all()
