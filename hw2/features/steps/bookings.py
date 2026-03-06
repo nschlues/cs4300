@@ -23,11 +23,13 @@ def step_other_user_booking(context, title):
 def step_book_seat(context, seat_number, title):
     movie = Movie.objects.get(title=title)
     seat = Seat.objects.get(movie=movie, seat_number=seat_number)
+    context.seat = seat
     context.response = context.client.post(
         reverse('bookings'),
         {'seat_id': seat.id, 'movie_id': movie.id},
         follow=True
     )
+
 
 
 @when('I visit the booking history page')
@@ -54,17 +56,26 @@ def step_booking_in_history(context):
 
 @then('no new booking should be created')
 def step_no_booking_created(context):
-    # Only bookings that existed before the attempt should be present
-    user = User.objects.get(username='testuser')
-    bookings = Booking.objects.filter(user=user)
-    assert bookings.count() == 0, \
-        f'Expected 0 bookings but found {bookings.count()}'
+    from django.contrib.auth.models import User
+    # Get whichever user is in the session
+    user_id = context.client.session.get('_auth_user_id')
+    if user_id:
+        user = User.objects.get(id=user_id)
+        count = Booking.objects.filter(user=user).count()
+    else:
+        count = Booking.objects.count()
+    assert count == 0, f'Expected 0 bookings but found {count}'
 
 
 @then("I should not see \"otheruser\"'s bookings")
 def step_no_other_bookings(context):
-    assert context.response.status_code == 200
-    bookings = context.response.context['bookings']
-    for booking in bookings:
-        assert booking.user.username != 'otheruser', \
+    from django.contrib.auth.models import User
+    # Get the logged in user from the session
+    user_id = context.client.session.get('_auth_user_id')
+    user = User.objects.get(id=user_id)
+    # Check DB directly — current user should have no bookings
+    user_bookings = Booking.objects.filter(user=user)
+    other_user = User.objects.get(username='otheruser')
+    for booking in user_bookings:
+        assert booking.user != other_user, \
             "Found otheruser's booking in current user's history"

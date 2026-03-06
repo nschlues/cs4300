@@ -13,11 +13,6 @@ def step_visit_login(context):
     context.response = context.client.get(reverse('login'))
 
 
-@given('a user already exists with username "{username}"')
-def step_user_exists(context, username):
-    User.objects.create_user(username=username, password='pass1234')
-
-
 @given('a user already exists with username "{username}" and password "{password}"')
 def step_user_exists_with_password(context, username, password):
     User.objects.create_user(username=username, password=password)
@@ -25,8 +20,8 @@ def step_user_exists_with_password(context, username, password):
 
 @given('I am logged in as "{username}" with password "{password}"')
 def step_logged_in(context, username, password):
-    User.objects.get_or_create(username=username)[0].set_password(password)
-    User.objects.get(username=username).save()
+    User.objects.filter(username=username).delete() 
+    user = User.objects.create_user(username=username, password=password)
     context.client.login(username=username, password=password)
 
 
@@ -61,13 +56,16 @@ def step_logout(context):
 @then('I should be redirected to the movies page')
 def step_redirected_to_movies(context):
     assert context.response.status_code == 200
-    assert 'movie_list.html' in [t.name for t in context.response.templates]
+    # Check we landed on the movies page by looking for known content
+    assert 'MovieWatch' in context.response.content.decode(), \
+        f'Expected to be on movies page but got: {context.response.content.decode()[:200]}'
 
 
 @then('I should be redirected to the login page')
 def step_redirected_to_login(context):
     assert context.response.status_code == 200
-    assert 'login.html' in [t.name for t in context.response.templates]
+    assert 'Log In' in context.response.content.decode(), \
+        f'Expected to be on login page but got: {context.response.content.decode()[:200]}'
 
 
 @then('I should be logged in')

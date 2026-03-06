@@ -7,7 +7,7 @@ Feature: User Authentication
         And I should be logged in
 
     Scenario: A user registers with a duplicate username
-        Given a user already exists with username "existing"
+        Given a user already exists with username "existing" and password "pass1234"
         And I am on the registration page
         When I register with username "existing" and password "test"
         Then I should see "An error occurred"

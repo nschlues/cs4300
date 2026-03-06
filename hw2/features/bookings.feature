@@ -23,6 +23,7 @@ Feature: Seat Booking
 
     Scenario: A user only sees their own bookings
         Given I am logged in as "test" with password "test"
+        And there is a movie called "The Matrix"             
         And "otheruser" has a booking for "The Matrix"
         When I visit the booking history page
         Then I should not see "otheruser"'s bookings
