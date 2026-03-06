@@ -6,8 +6,6 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 
-def my_view(request):
-    return render(request, 'my_page.html')
 
 # Login View for user authentication
 def LoginView(request):
