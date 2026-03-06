@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Movie, Seat, Booking 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 def my_view(request):
     return render(request, 'my_page.html')
@@ -43,6 +44,12 @@ def SignUpView(request):
     else:
         return render(request, 'bookings/register.html')
 
+# Logout
+def LogoutView(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('movies')
+
 # Signup View for new users
 def RegisterViewSet(request):
     return render(request, 'bookings/register.html')
@@ -55,8 +62,14 @@ def SeatViewSet(request, movie_id):
 
 # Booking View for user's to view their booking history
 def BookingViewSet(request):
-    bookings = Booking.objects.filter(user=request.user)
-    return render(request, 'bookings/booking_history.html', {'bookings': bookings})
+    # If user is creating a booking
+    if request.method == '':
+        
+
+    # Else return a user's booking history
+    else:
+        bookings = Booking.objects.filter(user=request.user)
+        return render(request, 'bookings/booking_history.html', {'bookings': bookings})
 
 # Movie View for CRUD operations on movies
 def MovieViewSet(request):

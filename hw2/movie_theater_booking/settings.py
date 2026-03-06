@@ -33,6 +33,11 @@ ALLOWED_HOSTS = [
 ]
 
 
+# Trust security origins
+CSRF_TRUSTED_ORIGINS = [
+    "https://app-nschluescontainer-21.devedu.io",
+]
+
 # Application definition
 
 INSTALLED_APPS = [

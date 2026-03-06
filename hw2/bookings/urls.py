@@ -8,6 +8,7 @@ urlpatterns = [
     path("book/<int:movie_id>/", views.SeatViewSet, name="book_seat"),
     path("login/", views.LoginView, name="login"),
     path("signup/", views.SignUpView, name="register"),
+    path("logout/", views.LogoutView, name="logout"),
 
     # API URLs
     
