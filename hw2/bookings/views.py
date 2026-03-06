@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.exceptions import ValidationError
 from .serializers import MovieSerializer, SeatSerializer, BookingSerializer
 
 
@@ -108,18 +109,25 @@ class SeatViewSet(viewsets.ModelViewSet):
     # Only return seats for a specifif movie if provided
     def get_queryset(self):
         queryset = Seat.objects.all()
-        movie_id = self.request.query_params.get(movie)
+        movie_id = self.request.query_params.get('movie')
         if movie_id is not None:
-            queryset = queryset.filter(movie_id)
+            queryset = queryset.filter(movie=movie_id)
         return queryset
 
 
 class BookingViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     serializer_class = BookingSerializer
 
     # Requires user to be logged in to create bookings through the API
     def perform_create(self, serializer):
         seat = serializer.validated_data['seat']
+    
+        # Reject if seat is already booked
+        if seat.is_booked:
+            raise ValidationError('This seat is already booked.')
+    
+        # Mark seat as booked and save
         seat.is_booked = True
         seat.save()
         serializer.save(user=self.request.user)

@@ -8,8 +8,8 @@ class MovieSerializer(serializers.ModelSerializer):
 
 class SeatSerializer(serializers.ModelSerializer):
     class Meta:
-        seat = Seat
-        fields = '__all__'
+        model = Seat          
+        fields = ['id', 'movie', 'seat_number', 'is_booked']
         
 # Do not include the user field for privacy. Just show all combined bookings
 class BookingSerializer(serializers.ModelSerializer):
