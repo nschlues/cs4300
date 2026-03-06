@@ -5,6 +5,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
+from .serializers import MovieSerializer, SeatSerializer, BookingSerializer
 
 
 # Login View for user authentication
@@ -88,4 +91,40 @@ def BookingViewSet(request):
 def MovieViewSet(request):
     movies = Movie.objects.all()
     return render(request, 'bookings/movie_list.html', {"movies": movies})
+
+
+## API Views
+class MovieViewSet(viewsets.ModelViewSet):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+    # Make users have to authenticate
+    permission_classes = [IsAuthenticated]
+
+
+class SeatViewSet(viewsets.ModelViewSet):
+    queryset = Seat.objects.all()
+    serializer_class = SeatSerializer
+
+    # Only return seats for a specifif movie if provided
+    def get_queryset(self):
+        queryset = Seat.objects.all()
+        movie_id = self.request.query_params.get(movie_id)
+        if movie_id is not None:
+            queryset = queryset.filter(movie_id)
+        return queryset
+
+
+class BookingViewSet(viewsets.ModelViewSet):
+    serializer_class = MovieSerializer
+    # Make users have to authenticate
+    permission_classes = [IsAuthenticated]
+
+    # Requires user to be logged in to create bookings through the API
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+    # Makes user get only their bookings through the API
+    def get_queryset(self):
+        return Booking.objects.filter(user=self.request.user)
     
+    queryset = Booking.objects.all()

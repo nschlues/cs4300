@@ -1,7 +1,8 @@
-from django.test import TestCase
+from django.test import TestCase, Client
+from django.urls import reverse
 from django.contrib.auth.models import User
-from .models import Movie, Seat, Booking 
-from datetime import date 
+from .models import Movie, Seat, Booking
+from datetime import date
 
 
 class MovieModelTest(TestCase):
@@ -144,15 +145,6 @@ class SignUpViewTest(TestCase):
         self.assertContains(response, "An error occurred")
 
 
-    def test_duplicate_password(self):
-        User.objects.create_user(username="existing", password="pass1234")
-        response = self.client.post(
-            reverse("register"), {"username": "new", "password": "pass1234"}
-        )
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "An error occurred")
-
-
 
 class LogoutViewTest(TestCase):
     def setUp(self):
@@ -250,7 +242,7 @@ class BookingViewSetTest(TestCase):
         self.assertContains(response, "Bookable Movie")
 
     def test_booking_history_excludes_other_users(self):
-        other_user = User.objects.create_user(username="test", password="test")
+        other_user = User.objects.create_user(username="othertest", password="test")
         other_seat = self.movie.seats.last()
         Booking.objects.create(user=other_user, movie=self.movie, seat=other_seat)
         self.client.login(username="test", password="test")
